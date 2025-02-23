@@ -3,25 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spin & Earn</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
-        #wheel { width: 200px; height: 200px; border-radius: 50%; border: 5px solid #000; background: conic-gradient(red, yellow, green, blue, orange, purple); }
-        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
-    </style>
+    <title>My Telegram Web App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <h2>🎡 Spin & Earn</h2>
-    <div id="wheel"></div>
-    <button onclick="spinWheel()">Spin Now</button>
-    <p id="result"></p>
-
+    <h1>Welcome to My Bot</h1>
+    <p>Telegram User: <span id="user"></span></p>
+    
     <script>
-        function spinWheel() {
-            let rewards = [5, 10, 20, 50, 100, 0];
-            let prize = rewards[Math.floor(Math.random() * rewards.length)];
-            document.getElementById("result").innerText = "🎉 You Won: ₹" + prize;
-        }
+        let tg = window.Telegram.WebApp;
+        document.getElementById("user").innerText = tg.initDataUnsafe?.user?.first_name || "Guest";
+        tg.expand();
     </script>
 </body>
 </html>
