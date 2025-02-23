@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin & Earn</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #wheel { width: 200px; height: 200px; border-radius: 50%; border: 5px solid #000; background: conic-gradient(red, yellow, green, blue, orange, purple); }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h2>🎡 Spin & Earn</h2>
+    <div id="wheel"></div>
+    <button onclick="spinWheel()">Spin Now</button>
+    <p id="result"></p>
+
+    <script>
+        function spinWheel() {
+            let rewards = [5, 10, 20, 50, 100, 0];
+            let prize = rewards[Math.floor(Math.random() * rewards.length)];
+            document.getElementById("result").innerText = "🎉 You Won: ₹" + prize;
+        }
+    </script>
+</body>
+</html>
